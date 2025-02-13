@@ -6,10 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <button>Home</button>
-    <button>Listar músicas</button>
-    <button>Adicionar músicas</button>
-    <button>Gerir preço por like</button>
+    
+    <header>
+        <%= include("partials/header") %>
+    </header>
 
     <h1>Bem-vindo à página inicial</h1>
 
@@ -19,7 +19,10 @@
 
     <p>Obter uma música</p>
 
-    ID da música <input type="text"> <button>Obter</button>
-    </input>
+    <form>
+        <label for="Music">ID da Musica:</label>
+        <input type="text" id="Music" name="Music">
+        <input type="submit" value="Obter">
+    </form>
 </body>
 </html>
