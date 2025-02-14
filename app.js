@@ -496,7 +496,10 @@ app.get('/' , (req,res) => {
 
 });
 
+
 app.get('/new-song' , (req,res) => {
+  
+  res.render('new-song')
 
 });
 
