@@ -3,9 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Document</title>
 </head>
 <body>
+
+    <%- include("partials/header") %>
     
+    <h1>Editar preço por Like:</h1>
+
+    <form id="price-form">
+
+        <label for="price">Preço por Likes:</label>
+        <input type="text" name="price" placeholder="<%= price %>">
+        <button type="submit">Obter</button>
+    </form>
+
+
+
+
+
+
+    <script>
+        document.getElementById('price-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+    
+            axios.put(`/api/price`, data)
+            .then(response => {
+                console.log('Success:', response.data);
+                location.reload();
+                
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                
+            });
+        });
+    </script>
 </body>
 </html>

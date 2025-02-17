@@ -503,3 +503,15 @@ app.get('/new-song' , (req,res) => {
 
 });
 
+app.get('/price' , (req,res) => {
+  
+  res.render('price', {price: pricePerLike})
+
+});
+
+app.get('/songs' , (req,res) => {
+
+res.render('songs')
+
+})
+
