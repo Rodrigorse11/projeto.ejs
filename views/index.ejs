@@ -19,10 +19,23 @@
 
     <p>Obter uma música</p>
 
-    <form>
+    <form id="MusicId">
         <label for="Music">ID da Musica:</label>
-        <input type="text" id="Music" name="Music">
+        <input type="text" id="Music" name="id">
         <input type="submit" value="Obter">
     </form>
+
+    <script>
+        document.getElementById('MusicId').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+
+            window.location.href = "http://localhost:3000/song/" + data.id
+        })
+    </script>
+
+   
 </body>
 </html>

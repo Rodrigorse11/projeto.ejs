@@ -492,9 +492,12 @@ app.set('view engine', 'ejs');
 
 app.get('/' , (req,res) => {
 
+
   res.render('index')
 
 });
+
+
 
 
 app.get('/new-song' , (req,res) => {
@@ -511,7 +514,34 @@ app.get('/price' , (req,res) => {
 
 app.get('/songs' , (req,res) => {
 
-res.render('songs')
+  const query = `SELECT * FROM songs`
+
+  connection.query(query, (err, results) => {
+
+    if (err) {
+      return res.status(500).send('Erro ao buscar músicas: ' + err.message);
+    }
+
+
+res.render('songs' , {query:results})
 
 })
 
+})
+
+app.get('/song/:id' , (req,res) => {
+
+  const id = req.params.id;
+
+  const myQuery = `SELECT * FROM ${NOME_TABELA} WHERE id=${id};`
+
+  connection.query(myQuery, (err, results) => {
+
+    if (err) {
+      return res.status(500).send('Erro ao buscar músicas: ' + err.message);
+    }
+    res.render("song", {MusicId:id, query:results})
+  })
+  
+  
+  })

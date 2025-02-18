@@ -17,14 +17,11 @@
         <label for="price">Preço por Likes:</label>
         <input type="text" name="price" placeholder="<%= price %>">
         <button type="submit">Obter</button>
+        
     </form>
 
-
-
-
-
-
     <script>
+
         document.getElementById('price-form').addEventListener('submit', function(event) {
             event.preventDefault();
     
@@ -42,6 +39,8 @@
                 
             });
         });
+
     </script>
+
 </body>
 </html>

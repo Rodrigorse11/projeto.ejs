@@ -8,9 +8,118 @@
 </head>
 <body>
 
-    
-    
+    <%- include("partials/header") %>
+   
+    <h1>Música ID: <% MusicId %></h1>
+ 
+    <br><br>
+ 
+    <table border="2">
+       
+        <tr>
+            <td>ID</td>
+            <td>Title</td>
+            <td>Artist</td>
+            <td>Album</td>
+            <td>Genre</td>
+            <td>Duration Seconds</td>
+            <td>Release Date</td>
+            <td>Likes</td>
+        </tr>
+           
+        <tr>
+            <td><%= query[0].id %></td>
+            <td><%= query[0].title %></td>
+            <td><%= query[0].artist %></td>
+            <td><%= query[0].album %></td>
+            <td><%= query[0].genre %></td>
+            <td><%= query[0].duration_seconds %></td>
+            <td><%= query[0].release_date %></td>
+            <td><%= query[0].likes %></td>
+        </tr>
+ 
+    </table>
+ 
+    <br><br>
+ 
+  
+ 
+    <br>
+ 
+    <h1>Editar Música</h1>
+ 
+    <br>
+ 
+    <form id="mudar-song">
 
+        <label for="ID">ID:</label>
+        <input type="text" name="id" value="<%= query[0].id %>" required>
 
-</body>
+        <br><br>
+ 
+        <label for="title">Title:</label>
+        <input type="text" name="title" value="<%= query[0].title %>" required>
+
+        <br><br>
+ 
+        <label for="artist">Artist:</label>
+        <input type="text" name="artist" value="<%= query[0].artist %>" required>
+
+        <br><br>
+ 
+        <label for="album">Album:</label>
+        <input type="text" name="album" value="<%= query[0].album %>" required>
+
+        <br><br>
+ 
+        <label for="genre">Genre:</label>
+        <input type="text" name="genre" value="<%= query[0].genre %>" required>
+
+        <br><br>
+ 
+        <label for="duration_seconds">Duration Seconds:</label>
+        <input type="text" name="duration_seconds" value="<%= query[0].duration_seconds %>" required>
+
+        <br><br>
+ 
+        <label for="release_date">Release Date</label>
+        <input type="date" name="release_date" value="<%= query[0].release_date %>" required>
+
+        <br><br>
+ 
+        <label for="likes">Likes:</label>
+        <input type="text" name="likes" value="<%= query[0].likes %>" required>
+ 
+        <br><br>
+ 
+        <input type="submit" value="Editar">
+ 
+    </form>
+ 
+ 
+    <h1>Lyrics</h1>
+   
+ 
+    <script>
+ 
+        document.getElementById('mudar-song').addEventListener('submit', function(event) {
+            event.preventDefault();
+   
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+ 
+            axios.put(`/api/songs/<%= MusicId %>`, data)
+            .then(response => {
+                console.log('Success:', response.data);
+                location.reload();
+            })
+ 
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+ 
+    </script>
+</body> 
 </html>
+ 

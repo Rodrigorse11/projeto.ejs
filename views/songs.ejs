@@ -11,18 +11,54 @@
 
     <%- include("partials/header") %>
 
-    <td>
-        <tr>ID</tr>
-        <tr>Title</tr>
-        <tr>Artiste</tr>
-        <tr>Album</tr>
-        <tr>Genre</tr>
-        <tr>Duration_seconds</tr>
-        <tr>Release_date</tr>
-        <tr>Likes</tr>  
-    </td>
-
-
+    <h1>Listagem de musicas disponiveis</h1>
     
+    <table border="2">
+
+    <tr>
+        <td>ID</td>
+        <td>Title</td>
+        <td>Artiste</td>
+        <td>Album</td>
+        <td>Genre</td>
+        <td>Duration Seconds</td>
+        <td>Release Date</td>
+        <td>Likes</td>  
+        <td>Eliminar</td>
+    </tr>
+
+    <% for (let i = 0 ; i < query.length ; i++){ %>
+    
+    <tr>
+        <td><%= query[i].id %></td>
+        <td><%= query[i].title %></td>
+        <td><%= query[i].artist %></td>
+        <td><%= query[i].album %></td>
+        <td><%= query[i].genre %></td>
+        <td><%= query[i].duration_seconds %></td>
+        <td><%= query[i].release_date %></td>
+        <td><%= query[i].likes %></td>
+        <td> <button onclick="erase(`<%= query[i].id %>`)"> Eliminar </button> </td>       
+    </tr>
+
+    <% } %>
+
+</table>
+
+<script>
+
+function erase(ID) {
+
+    axios.delete(`/api/songs/${ID}`) .then(response => {
+        console.log('Success:', response.data);
+        location.reload();
+    })
+
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+ };
+
+</script>
 </body>
 </html>
