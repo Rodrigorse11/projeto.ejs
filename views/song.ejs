@@ -10,7 +10,7 @@
 
     <%- include("partials/header") %>
    
-    <h1>Música ID: <% MusicId %></h1>
+    <h1>Música ID: <%= MusicId %></h1>
  
     <br><br>
  
@@ -42,7 +42,9 @@
  
     <br><br>
  
-  
+    <h1>Receitas</h1>
+
+    <p>A música gerou: <%= receita %> € </p>
  
     <br>
  
@@ -98,6 +100,8 @@
  
  
     <h1>Lyrics</h1>
+
+    <pre><%= lyrics.lyrics %></pre>
    
  
     <script>

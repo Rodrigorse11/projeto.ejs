@@ -4,6 +4,7 @@
 const express = require('express')
 const mysql = require('mysql2');
 const app = express()
+const axios = require('axios');
 
 // Constantes do Projeto
 const port = 3000
@@ -540,8 +541,17 @@ app.get('/song/:id' , (req,res) => {
     if (err) {
       return res.status(500).send('Erro ao buscar músicas: ' + err.message);
     }
-    res.render("song", {MusicId:id, query:results})
-  })
-  
-  
+
+    const dinheiro = results[0].likes * pricePerLike;
+
+    axios.get(`https://api.lyrics.ovh/v1/${results[0].artist}/${results[0].title}`)
+      .then(response => {
+        console.log('Sucess', response.data);
+        res.render('song', {query:results, MusicId:id, receita:dinheiro, lyrics: response.data})
+      })
+
+      .catch (error => {
+        console.error('Erro', error);
+      })
+    })
   })
