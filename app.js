@@ -6,12 +6,15 @@ const mysql = require('mysql2');
 const app = express()
 const axios = require('axios');
 
+
 // Constantes do Projeto
 const port = 3000
 const NOME_TABELA = "songs"
 
 // Middleware para parse de JSON no corpo dos pedidos
 app.use(express.json());
+
+app.use(express.static('public'))
 
 // Criar o servidor HTTP
 app.listen(port, () => {
@@ -552,6 +555,7 @@ app.get('/song/:id' , (req,res) => {
 
       .catch (error => {
         console.error('Erro', error);
+        res.render('song', {query:results, MusicId:id, receita:dinheiro, lyrics: null})
       })
     })
   })

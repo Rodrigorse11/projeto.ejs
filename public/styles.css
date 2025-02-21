@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* Estilo para o título */
+h1 {
+    margin-bottom: 20px;
+    color: #2c3e50;  /* Cor do título */
+}
+
+/* Estilo para os parágrafos */
+p {
+    margin-bottom: 15px;
+    line-height: 1.6;  /* Espaçamento entre linhas */
+}
+
+/* Estilo para o formulário */
+form {
+       /* Fundo branco do formulário */
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
+}
+
+/* Estilo para rótulos (labels) */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;  /* Negrito nos rótulos */
+}
+
+/* Estilo para o input de texto */
+input[type="text"] {
+    width: 50%;  /* Largura total */
+    padding: 5px;
+    border: 1px solid #ccc;  /* Borda cinza */
+    border-radius: 4px;  /* Borda arredondada */
+      
+}
+
+/* Estilo para o botão de submit */
+input[type="submit"] {
+    background-color: green;  /* Cor do botão */
+    color: white;  /* Cor do texto do botão */
+    border: none;  /* Sem borda */
+    padding: 10px 15px;  /* Preenchimento do botão */
+    border-radius: 4px;  /* Borda arredondada */
+    cursor: pointer;  /* Cursor em forma de mão */
+    transition: background-color 0.3s;  /* Transição suave para a cor */
+}
+
+/* Efeito hover para o botão */
+input[type="submit"]:hover {
+    background-color: lightgreen;  /* Cor mais escura ao passar o mouse */
+}
+
+/* Estilo para a tabela */
+table {
+    width: 100%; /* Largura total da tabela */
+    border-collapse: collapse; /* Colapsar bordas */
+    margin-top: 20px; /* Espaço superior */
+}
+
+/* Estilo para as células de cabeçalho da tabela */
+th, td {
+    padding: 12px; /* Preenchimento das células */
+    text-align: left; /* Alinhamento do texto à esquerda */
+    border-bottom: 1px solid #ddd; /* Borda de linha inferior */
+}
+
+/* Estilo para a primeira linha da tabela */
+tr:first-child {
+    background-color: green; /* Cor de fundo para o cabeçalho */
+    color: white; /* Cor do texto do cabeçalho */
+}
+
+
+
+/* Estilo para o botão de eliminar */
+button {
+    background-color: green; /* Cor do botão */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Sem borda */
+    padding: 5px 10px; /* Preenchimento */
+    border-radius: 4px; /* Borda arredondada */
+    cursor: pointer; /* Cursor em forma de mão */
+    transition: background-color 0.3s; /* Transição suave */
+}
+
+/* Efeito hover para o botão de eliminar */
+button:hover {
+    background-color: lightgreen; /* Cor mais escura ao passar o mouse */
+}
+
+
+#navbar {
+    display: inline-block; /* Exibir os formulários em linha */
+} 
+
+
+
+
+
+
