@@ -23,11 +23,11 @@ app.listen(port, () => {
 
 // Criação da  com a base de dados
 const connection = mysql.createConnection({
-  host: '127.0.0.1',       // Endereço do servidor MySQL
-  user: 'root',            // user do MySQL
-  password: '',            // Senha do MySQL
-  database: 'psi',         // Nome da base de dados
-  port: 3306
+  host: 'mysql-24f5600d-al-68ca.c.aivencloud.com',       // Endereço do servidor MySQL
+  user: 'avnadmin',            // user do MySQL
+  password: 'AVNS_ab2xQWMXUq8Ax0_OtmS',            // Senha do MySQL
+  database: 'defaultdb',         // Nome da base de dados
+  port: 19653
 });
 
 // Conexão à base de dados
